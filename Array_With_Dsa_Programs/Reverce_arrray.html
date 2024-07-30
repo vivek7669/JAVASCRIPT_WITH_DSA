@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum_Of_Array</title>
+</head>
+<body>
+    <form action="" id="number1">
+        <input type="number" name="num" id="num"  placeholder="Enter Numbr">
+        <input type="submit" value="Add" id="b1">
+    </form>
+    <h5 id="show_array"></h5>
+    <h5 id="sum_arr"></h5>
+    <script>
+        let arr = [];
+        
+        document.querySelector("#show_array").innerHTML="";
+        document.querySelector("#sum_arr").innerHTML="";
+        document.querySelector("#number1").addEventListener("submit",(e)=>{
+            e.preventDefault();
+            let numdata = Number(document.querySelector("#num").value);
+            arr.push(numdata);
+            document.querySelector("#show_array").innerHTML="Orignal Array : ["+arr+"]";
+            let i=Number(0);
+            let res = [];
+            for(i=arr.length-1;i>=0;i--){
+                res.push(arr[i]);
+            }
+            document.querySelector("#sum_arr").innerHTML=`Reverse Array Is [${res}]`;
+        })
+
+    </script>
+</body>
+</html>

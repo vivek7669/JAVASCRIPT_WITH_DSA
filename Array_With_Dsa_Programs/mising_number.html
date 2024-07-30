@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum_Of_Array</title>
+</head>
+<body>
+    <form action="" id="number1">
+        <input type="number" name="num" id="num"  placeholder="Enter Numbr">
+        <input type="number" name="num" id="pos"  placeholder="Enter Position ">
+        <input type="submit" value="Add" id="b1">   
+    </form>
+    <!-- <button id="b2" style="margin-top: 1rem;">Rotate Array Elements</button> -->
+    <h5 id="show_array"></h5>
+    <h5 id="given_arr"></h5>
+    <script>
+        let arr = [];
+        
+        document.querySelector("#show_array").innerHTML="";
+        document.querySelector("#given_arr").innerHTML="";
+        document.querySelector("#number1").addEventListener("submit",(e)=>{
+            e.preventDefault();
+            let numdata = Number(document.querySelector("#num").value);
+            arr.push(numdata);     
+
+            let i=Number(0);
+            let j=Number(0);
+            let dismanage ;
+            let maxnum;
+            let dis = [];
+            let res = Number(0);
+            let letarr  = [];
+            for(i=0;i<arr.length;i++){
+                  if(arr.length>0){
+                    let res = arr[i]-arr[i-1];
+                    dis.push(res);
+                  }
+            }
+
+            for(i=0;i<dis.length;i++){
+                for(j=0;j<i;j++){
+                    if(dis[i] == dis[j]){
+                        dismanage =dis[j];
+                    }
+                }
+            }
+
+            for(i=0;i<arr.length;i++) {           
+               for(let j=i;j>0;j--){
+                if(arr[i] < arr[j]){
+                    maxnum = arr[j];
+                }
+                else{
+                    maxnum = arr[i];
+                }
+               }
+            }
+            dis.splice(0,1);
+            for(i=0;i<maxnum;i+=dismanage){
+                // console.log(i);
+                letarr[i] = i+dismanage;
+            }
+
+
+
+            document.querySelector("#show_array").innerHTML=`Orignal Array : [${arr}]`;
+            document.querySelector("#given_arr").innerHTML=`Updated Array : [${letarr}]`;
+        })
+
+
+    </script>
+</body>
+</html>

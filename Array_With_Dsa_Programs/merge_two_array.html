@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum_Of_Array</title>
+</head>
+<body>
+    <h3>first Array Elements</h3>
+    <form action="" id="number1">
+        <input type="number" name="num" id="num"  placeholder="Enter Numbr">
+        <input type="submit" value="Add" id="b1">
+    </form>
+    <h5 id="show_array"></h5>
+    <h3>Second Array Elements</h3>
+    <form action="" id="number2">
+        <input type="number" name="num" id="num1"  placeholder="Enter Numbr">
+        <input type="submit" value="Add" id="b2">
+    </form>
+    <h5 id="show_array1"></h5><br><br>
+    <button id="btndata">Merg_Array</button>
+    <h5 id="sum_arr"></h5>
+    <script>
+        let arr = [];
+        let arr1 = [];
+        let flag = false;
+        let newarr = [];
+        
+        document.querySelector("#show_array").innerHTML="";
+        document.querySelector("#show_array1").innerHTML="";
+        document.querySelector("#sum_arr").innerHTML="";
+        
+        document.querySelector("#number1").addEventListener("submit",(e)=>{
+            e.preventDefault();
+            let numdata = Number(document.querySelector("#num").value);
+            arr.push(numdata);
+            document.querySelector("#show_array").innerHTML="Orignal Array : ["+arr+"]";  
+        })
+        newarr.push(arr);
+        
+        document.querySelector("#number2").addEventListener("submit",(e)=>{
+            e.preventDefault();
+            let numdata = Number(document.querySelector("#num1").value);
+            arr1.push(numdata);
+            document.querySelector("#show_array1").innerHTML="Orignal Array : ["+arr1+"]";
+        })
+        newarr.push(arr1);
+
+        document.querySelector("#btndata").addEventListener("click", ()=>{
+            document.querySelector("#sum_arr").innerHTML=`Marge Of Two Array Is [${newarr}]`;
+        })
+    </script>
+</body>
+</html>
